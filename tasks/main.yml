@@ -1,0 +1,22 @@
+---
+# tasks file for dovecot
+- name: install software
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - "{{ dovecot_packages[ansible_distribution ~ '-' ~ ansible_distribution_major_version]
+      | default(dovecot_packages[ansible_distribution]
+      | default(dovecot_packages['default'] )) }}"
+
+- name: start and enable software
+  service:
+    name: "{{ item }}"
+    state: started
+    enabled: yes
+  with_items:
+    - "{{ dovecot_services[ansible_distribution ~ '-' ~ ansible_distribution_major_version]
+      | default(dovecot_services[ansible_distribution]
+      | default(dovecot_services['default'] )) }}"
+  when:
+    - ansible_virtualization_type != "docker"

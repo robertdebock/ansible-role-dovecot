@@ -1,0 +1,9 @@
+---
+# vars file for dovecot
+dovecot_packages:
+  default:
+    - dovecot
+
+dovecot_services:
+  default:
+    - dovecot
