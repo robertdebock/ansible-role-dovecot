@@ -30,6 +30,8 @@ galaxy_info:
 
   galaxy_tags:
     - dovecot
+    - pop3
+    - imap
     - installer
     - package
     - Alpine
