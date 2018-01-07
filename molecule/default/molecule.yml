@@ -8,29 +8,29 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: alpine-3.5
+  - name: dovecot-alpine-3.5
     image: alpine:3.5
-  - name: alpine-3.6
+  - name: dovecot-alpine-3.6
     image: alpine:3.6
-  - name: centos-6
+  - name: dovecot-centos-6
     image: centos:6
-  - name: centos-7
+  - name: dovecot-centos-7
     image: centos:7
-  - name: debian-jessie
+  - name: dovecot-debian-jessie
     image: debian:jessie
-  - name: debian-buster
+  - name: dovecot-debian-buster
     image: debian:buster
-  - name: fedora-26
+  - name: dovecot-fedora-26
     image: fedora:26
-  - name: fedora-27
+  - name: dovecot-fedora-27
     image: fedora:27
-  - name: opensuse-42.2
+  - name: dovecot-opensuse-42.2
     image: opensuse:42.2
-  - name: opensuse-42.3
+  - name: dovecot-opensuse-42.3
     image: opensuse:42.3
-  - name: ubuntu-zesty
+  - name: dovecot-ubuntu-zesty
     image: ubuntu:zesty
-  - name: ubuntu-artful
+  - name: dovecot-ubuntu-artful
     image: ubuntu:artful
 provisioner:
   name: ansible

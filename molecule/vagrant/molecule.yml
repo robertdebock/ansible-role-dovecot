@@ -10,23 +10,23 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: centos-6
+  - name: dovecot-centos-6
     box: centos/6
-  - name: centos-7
+  - name: dovecot-centos-7
     box: centos/7
-  - name: debian-jessie64
+  - name: dovecot-debian-jessie64
     box: debian/jessie64
-  - name: debian-buster64
+  - name: dovecot-debian-buster64
     box: desc/buster64
-  - name: fedora-26-cloud-base
+  - name: dovecot-fedora-26-cloud-base
     box: fedora/26-cloud-base
-  - name: fedora-27-cloud-base
+  - name: dovecot-fedora-27-cloud-base
     box: fedora/27-cloud-base
-  - name: opensuse-openSUSE-42-2-x86-64
+  - name: dovecot-opensuse-openSUSE-42-2-x86-64
     box: opensuse/openSUSE-42.2-x86_64
-  - name: ubuntu-trusty
+  - name: dovecot-ubuntu-trusty
     box: ubuntu/trusty64
-  - name: ubuntu-zesty
+  - name: dovecot-ubuntu-zesty
     box: ubuntu/zesty64
 provisioner:
   name: ansible
