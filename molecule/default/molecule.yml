@@ -8,6 +8,8 @@ driver:
 lint:
   name: yamllint
 platforms:
+  - name: dovecot-archlinux
+    image: base/archlinux
   - name: dovecot-alpine-3.6
     image: alpine:3.6
   - name: dovecot-alpine-3.7
@@ -18,6 +20,8 @@ platforms:
     image: centos:7
   - name: dovecot-debian-jessie
     image: debian:jessie
+  - name: dovecot-debian-stretch
+    image: debian:stretch
   - name: dovecot-debian-buster
     image: debian:buster
   - name: dovecot-fedora-26
@@ -28,8 +32,13 @@ platforms:
     image: opensuse:42.2
   - name: dovecot-opensuse-42.3
     image: opensuse:42.3
-  - name: dovecot-ubuntu-zesty
-    image: ubuntu:zesty
+    # 14.04 LTS
+  - name: dovecot-ubuntu-trusty
+    image: ubuntu:trusty
+    # 16.04 LTS
+  - name: dovecot-ubuntu-xenial
+    image: ubuntu:xenial
+    # 17.04
   - name: dovecot-ubuntu-artful
     image: ubuntu:artful
 provisioner:
