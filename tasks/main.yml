@@ -9,6 +9,12 @@
       | default(dovecot_packages[ansible_distribution]
       | default(dovecot_packages['default'] )) }}"
 
+- name: configure software
+  lineinfile:
+    path: /etc/dovecot/conf.d/10-mail.conf
+    regexp: "^mail_location"
+    line: "mail_location = {{ dovecot_mailbox_location }}"
+
 - name: start and enable software
   service:
     name: "{{ item }}"
