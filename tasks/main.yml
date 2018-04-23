@@ -8,6 +8,11 @@
     - "{{ dovecot_packages[ansible_distribution ~ '-' ~ ansible_distribution_major_version]
       | default(dovecot_packages[ansible_distribution]
       | default(dovecot_packages['default'] )) }}"
+  notify:
+    - copy sample configuration
+
+- name: flush handlers
+  meta: flush_handlers
 
 - name: configure software
   lineinfile:
