@@ -24,10 +24,10 @@ platforms:
     image: debian:stretch
   - name: dovecot-debian-buster
     image: debian:buster
-  - name: dovecot-fedora-26
-    image: fedora:26
   - name: dovecot-fedora-27
     image: fedora:27
+  - name: dovecot-fedora-28
+    image: fedora:28
   - name: dovecot-opensuse-42.2
     image: opensuse:42.2
   - name: dovecot-opensuse-42.3
