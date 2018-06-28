@@ -1,13 +1,21 @@
 ---
 # tasks file for dovecot
+- name: load default variables
+  include_vars:
+    file: default.yml
+
+- name: load os-specific variables
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_distribution }}.yml"
+    - default.yml
+
 - name: install software
   package:
     name: "{{ item }}"
     state: present
   with_items:
-    - "{{ dovecot_packages[ansible_distribution ~ '-' ~ ansible_distribution_major_version]
-      | default(dovecot_packages[ansible_distribution]
-      | default(dovecot_packages['default'] )) }}"
+    - "{{ dovecot_packages }}"
   notify:
     - copy sample configuration
 
@@ -25,9 +33,6 @@
     name: "{{ item }}"
     state: started
     enabled: yes
-  with_items:
-    - "{{ dovecot_services[ansible_distribution ~ '-' ~ ansible_distribution_major_version]
-      | default(dovecot_services[ansible_distribution]
-      | default(dovecot_services['default'] )) }}"
+  with_items: "{{ dovecot_service }}"
   when:
     - ansible_virtualization_type != "docker"
