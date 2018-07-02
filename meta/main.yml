@@ -42,11 +42,11 @@ galaxy_info:
     - imap
     - installer
     - package
-    - Alpine
-    - CentOS
-    - Debian
-    - Fedora
-    - RHEL
-    - Ubuntu
+    - alpine
+    - centos
+    - debian
+    - fedora
+    - rhel
+    - ubuntu
 
 dependencies: []
