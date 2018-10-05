@@ -2,7 +2,7 @@
 # tasks file for dovecot
 - name: install dovecot
   package:
-    name: "{{ dovecot_pacakges[ansible_distribution]
+    name: "{{ dovecot_packages[ansible_distribution]
           | default(dovecot_packages['default'] }}"
     state: "{{ dovecot_package_state }}"
   notify:
