@@ -1,13 +1,11 @@
 ---
 # vars file for dovecot
 dovecot_packages:
-  Debian:
-    - dovecot-core
   default:
     - dovecot
+  Debian:
+    - dovecot-core
   Ubuntu:
     - dovecot-core
 
-dovecot_services:
-  default:
-    - dovecot
+dovecot_service: dovecot
