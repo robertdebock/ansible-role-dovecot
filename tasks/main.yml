@@ -3,7 +3,7 @@
 - name: install dovecot
   package:
     name: "{{ dovecot_packages[ansible_distribution]
-          | default(dovecot_packages['default'] }}"
+          | default(dovecot_packages['default']) }}"
     state: "{{ dovecot_package_state }}"
   notify:
     - copy sample configuration
