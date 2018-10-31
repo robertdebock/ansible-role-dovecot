@@ -1,4 +1,6 @@
 ---
+# defaults file for dovecot
+
 # Set the location for the mailbox.
 dovecot_mailbox_location: mbox:~/mail:INBOX=/var/spool/mail/%u
 

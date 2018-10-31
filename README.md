@@ -5,45 +5,60 @@ dovecot
 
 Provides Dovecot for your system.
 
-[Unit tests](https://travis-ci.org/robertdebock/ansible-role-dovecot) are done on every commit and periodically.
 
-If you find issues, please register them in [GitHub](https://github.com/robertdebock/ansible-role-dovecot/issues)
+Example Playbook
+----------------
 
-To test this role locally please use [Molecule](https://github.com/metacloud/molecule):
+This example is taken from `molecule/default/playbook.yml`:
 ```
-pip install molecule
-molecule test
+---
+- name: Converge
+  hosts: all
+  gather_facts: false
+  become: true
+
+  roles:
+    - robertdebock.bootstrap
+    - robertdebock.dovecot
+
 ```
-There are many scenarios available, please have a look in the `molecule/` directory.
+
+Role Variables
+--------------
+
+These variables are set in `defaults/main.yml`:
+```
+---
+# defaults file for dovecot
+
+# Set the location for the mailbox.
+dovecot_mailbox_location: mbox:~/mail:INBOX=/var/spool/mail/%u
+
+# To update all packages installed by this roles, set `dovecot_package_state` to `latest`.
+dovecot_package_state: present
+
+```
+
+Requirements
+------------
+
+- Access to a repository containing packages, likely on the internet.
+- A recent version of Ansible. (Tests run on the last 3 release of Ansible.)
+
+The following roles can be installed to ensure all requirements are met, using `ansible-galaxy install -r requirements.yml`:
+
+---
+- robertdebock.bootstrap
+
 
 Context
---------
+-------
+
 This role is a part of many compatible roles. Have a look at [the documentation of these roles](https://robertdebock.nl/) for further information.
 
 Here is an overview of related roles:
 ![dependencies](https://raw.githubusercontent.com/robertdebock/drawings/artifacts/dovecot.png "Dependency")
 
-Requirements
-------------
-
-Access to a repository containing packages, likely on the internet.
-
-Role Variables
---------------
-
-- dovecot_mailbox_location: Where to store mailboxes.
-
-Dependencies
-------------
-
-This role can be used to prepare your system:
-
-- [robertdebock.bootstrap](https://travis-ci.org/robertdebock/ansible-role-bootstrap)
-
-Download the dependencies by issuing this command:
-```
-ansible-galaxy install --role-file requirements.yml
-```
 
 Compatibility
 -------------
@@ -70,23 +85,26 @@ This role has been tested against the following distributions and Ansible versio
 
 A single star means the build may fail, it's marked as an experimental build.
 
-Example Playbook
-----------------
+Testing
+-------
 
+[Unit tests](https://travis-ci.org/robertdebock/ansible-role-dovecot) are done on every commit and periodically.
+
+If you find issues, please register them in [GitHub](https://github.com/robertdebock/ansible-role-dovecot/issues)
+
+To test this role locally please use [Molecule](https://github.com/metacloud/molecule):
 ```
-- hosts: servers
-
-  roles:
-    - role: robertdebock.bootstrap
-    - role: robertdebock.dovecot
+pip install molecule
+molecule test
 ```
+There are many specific scenarios available, please have a look in the `molecule/` directory.
 
-Install this role using `galaxy install robertdebock.dovecot`.
 
 License
 -------
 
-Apache License, Version 2.0
+Apache-2.0
+
 
 Author Information
 ------------------
