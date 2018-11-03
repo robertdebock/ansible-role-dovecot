@@ -1,11 +1,13 @@
 ---
 # vars file for dovecot
-dovecot_packages:
+_dovecot_packages:
   default:
     - dovecot
   Debian:
     - dovecot-core
   Ubuntu:
     - dovecot-core
+
+dovecot_packages: "{{ _dovecot_packages[ansible_distribution] | default(_dovecot_packages['default']) }}"
 
 dovecot_service: dovecot
