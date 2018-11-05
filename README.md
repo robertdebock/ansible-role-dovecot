@@ -3,8 +3,7 @@ dovecot
 
 [![Build Status](https://travis-ci.org/robertdebock/ansible-role-dovecot.svg?branch=master)](https://travis-ci.org/robertdebock/ansible-role-dovecot)
 
-Provides Dovecot for your system.
-
+The purpose of this role is to install and configure dovecot on your system.
 
 Example Playbook
 ----------------
