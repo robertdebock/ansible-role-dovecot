@@ -38,6 +38,8 @@ platforms:
     image: ubuntu:artful
   - name: dovecot-ubuntu-devel
     image: ubuntu:devel
+  - name: dovecot-ubuntu-latest
+    image: ubuntu:latest
 provisioner:
   name: ansible
   inventory:
