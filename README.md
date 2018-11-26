@@ -36,6 +36,11 @@ dovecot_mailbox_location: mbox:~/mail:INBOX=/var/spool/mail/%u
 # To update all packages installed by this roles, set `dovecot_package_state` to `latest`.
 dovecot_package_state: present
 
+# Some Docker containers do not allow managing services, rebooting and writing
+# to some locations in /etc. The role skips tasks that will typically fail in
+# Docker. With this parameter you can tell the role to -not- skip these tasks.
+dovecot_ignore_docker: yes
+
 ```
 
 Requirements

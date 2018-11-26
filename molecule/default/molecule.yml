@@ -38,8 +38,14 @@ platforms:
     image: ubuntu:artful
   - name: dovecot-ubuntu-devel
     image: ubuntu:devel
+  - name: dovecot-ubuntu-latest
+    image: ubuntu:latest
 provisioner:
   name: ansible
+  inventory:
+    group_vars:
+      all:
+        dovecot_ignore_docker: no
   lint:
     name: ansible-lint
   config_options:
