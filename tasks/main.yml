@@ -6,6 +6,9 @@
     state: "{{ dovecot_package_state }}"
   notify:
     - copy sample configuration
+  register: dovecot_install_dovecot
+  until: dovecot_install_dovecot is succeeded
+  retries: 3
 
 - name: flush handlers
   meta: flush_handlers
