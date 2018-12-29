@@ -19,19 +19,6 @@
     regexp: "^mail_location"
     line: "mail_location = {{ dovecot_mailbox_location }}"
 
-- name: place selinux type enforcement
-  copy:
-    src: my-dovecot.te
-    dest: /etc/my-dovecot.te
-  when:
-    - ansible_selinux is defined
-    - ansible_selinux
-    - ansible_selinux.status == "enabled"
-  notify:
-    - create dovecot selinux mod
-    - create dovecot selinux pp
-    - load dovecot selinux pp
-
 - name: start and enable dovecot
   service:
     name: "{{ item }}"
