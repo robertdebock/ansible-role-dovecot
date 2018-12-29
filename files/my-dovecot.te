@@ -1,0 +1,11 @@
+
+module my-dovecot 1.0;
+
+require {
+	type postfix_etc_t;
+	type httpd_t;
+	class file read;
+}
+
+#============= httpd_t ==============
+allow httpd_t postfix_etc_t:file read;

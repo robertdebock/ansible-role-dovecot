@@ -62,3 +62,12 @@
       dest: /etc/dovecot/conf.d/auth-vpopmail.conf.ext
   when:
     - ansible_distribution == "Archlinux"
+
+- name: create dovecot selinux mod
+  command: checkmodule -M -m -o /etc/my-dovecot.mod /etc/my-dovecot.te
+
+- name: create dovecot selinux pp
+  command: semodule_package -o /etc/my-dovecot.pp -m /etc/my-dovecot.mod
+
+- name: load dovecot selinux pp
+  command: semodule -i /etc/my-dovecot.pp
