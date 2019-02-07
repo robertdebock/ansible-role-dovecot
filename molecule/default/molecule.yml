@@ -15,7 +15,7 @@ platforms:
     image: alpine:latest
     command: sh -c "while true ; do sleep 1 ; done"
   - name: dovecot-archlinux
-    image: base/archlinux
+    image: archlinux/base
   - name: dovecot-centos-6
     image: centos:6
   - name: dovecot-centos-latest
