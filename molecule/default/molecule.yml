@@ -34,8 +34,10 @@ platforms:
     image: opensuse:leap
   - name: dovecot-opensuse-tumbleweed
     image: opensuse:tumbleweed
-  - name: dovecot-ubuntu-artful
-    image: ubuntu:artful
+  - name: dovecot-ubuntu-latest
+    image: ubuntu:latest
+  - name: dovecot-ubuntu-rolling
+    image: ubuntu:rolling
   - name: dovecot-ubuntu-devel
     image: ubuntu:devel
   - name: dovecot-ubuntu-latest
