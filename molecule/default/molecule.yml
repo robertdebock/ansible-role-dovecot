@@ -32,8 +32,6 @@ platforms:
     image: fedora:rawhide
   - name: dovecot-opensuse-leap
     image: opensuse:leap
-  - name: dovecot-opensuse-tumbleweed
-    image: opensuse:tumbleweed
   - name: dovecot-ubuntu-latest
     image: ubuntu:latest
   - name: dovecot-ubuntu-rolling
