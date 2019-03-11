@@ -3,7 +3,7 @@
 - name: install dovecot
   package:
     name: "{{ dovecot_packages }}"
-    state: "{{ dovecot_package_state }}"
+    state: present
   notify:
     - copy sample configuration
   register: dovecot_install_dovecot
