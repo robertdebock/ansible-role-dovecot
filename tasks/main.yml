@@ -26,4 +26,4 @@
     enabled: yes
   with_items: "{{ dovecot_service }}"
   when:
-    - ansible_virtualization_type != "docker" or dovecot_ignore_docker
+    - ansible_virtualization_type != "docker"
