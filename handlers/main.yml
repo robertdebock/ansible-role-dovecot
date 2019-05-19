@@ -60,5 +60,7 @@
       dest: /etc/dovecot/conf.d/auth-system.conf.ext
     - src: /usr/share/doc/dovecot/example-config/conf.d/auth-vpopmail.conf.ext
       dest: /etc/dovecot/conf.d/auth-vpopmail.conf.ext
+  loop_control:
+    label: "{{ item.dest }}"
   when:
     - ansible_distribution == "Archlinux"
