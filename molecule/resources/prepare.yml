@@ -6,4 +6,3 @@
 
   roles:
     - role: robertdebock.bootstrap
-    - role: robertdebock.selinux
