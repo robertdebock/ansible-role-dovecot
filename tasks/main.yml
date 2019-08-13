@@ -13,11 +13,17 @@
 - name: flush handlers
   meta: flush_handlers
 
-- name: configure dovecot
+- name: configure mail_location
   lineinfile:
     path: /etc/dovecot/conf.d/10-mail.conf
     regexp: "^mail_location"
     line: "mail_location = {{ dovecot_mailbox_location }}"
+
+- name: configure mail_access_group
+  lineinfile:
+    path: /etc/dovecot/conf.d/10-mail.conf
+    regexp: "^mail_access_group"
+    line: "mail_access_group = {{ dovecot_mail_access_group }}"
 
 - name: start and enable dovecot
   service:

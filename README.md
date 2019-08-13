@@ -45,6 +45,9 @@ These variables are set in `defaults/main.yml`:
 
 # Set the location for the mailbox.
 dovecot_mailbox_location: mbox:~/mail:INBOX=/var/spool/mail/%u
+
+# Grant access to these supplementary groups for mail processes.
+dovecot_mail_access_group: mail
 ```
 
 Requirements
