@@ -19,11 +19,11 @@
     regexp: "^mail_location"
     line: "mail_location = {{ dovecot_mailbox_location }}"
 
-- name: configure mail_access_group
+- name: configure mail_access_groups
   lineinfile:
     path: /etc/dovecot/conf.d/10-mail.conf
-    regexp: "^mail_access_group"
-    line: "mail_access_group = {{ dovecot_mail_access_group }}"
+    regexp: "^mail_access_groups"
+    line: "mail_access_groups = {{ dovecot_mail_access_groups }}"
 
 - name: start and enable dovecot
   service:
