@@ -35,6 +35,20 @@ The machine you are running this on, may need to be prepared.
 
 Also see a [full explanation and example](https://robertdebock.nl/how-to-use-these-roles.html) on how to use these roles.
 
+Role Variables
+--------------
+
+These variables are set in `defaults/main.yml`:
+```yaml
+---
+# defaults file for dovecot
+
+# Set the location for the mailbox.
+dovecot_mailbox_location: mbox:~/mail:INBOX=/var/spool/mail/%u
+
+# Grant access to these supplementary groups for mail processes.
+dovecot_mail_access_groups: mail
+```
 
 Requirements
 ------------
