@@ -41,7 +41,6 @@ galaxy_info:
     - imap
     - installer
     - package
-    - alpine
     - centos
     - debian
     - fedora
