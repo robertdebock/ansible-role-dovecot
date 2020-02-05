@@ -27,7 +27,6 @@
 
 - name: start and enable dovecot
   service:
-    name: "{{ item }}"
+    name: "{{ dovecot_service }}"
     state: started
     enabled: yes
-  with_items: "{{ dovecot_service }}"
