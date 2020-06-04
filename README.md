@@ -2,9 +2,9 @@
 
 Install and configure dovecot on your system.
 
-|Travis|GitHub|Quality|Downloads|
-|------|------|-------|---------|
-|[![travis](https://travis-ci.com/robertdebock/ansible-role-dovecot.svg?branch=master)](https://travis-ci.com/robertdebock/ansible-role-dovecot)|[![github](https://github.com/robertdebock/ansible-role-dovecot/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-dovecot/actions)|[![quality](https://img.shields.io/ansible/quality/22978)](https://galaxy.ansible.com/robertdebock/dovecot)|[![downloads](https://img.shields.io/ansible/role/d/22978)](https://galaxy.ansible.com/robertdebock/dovecot)|
+|Travis|GitHub|Quality|Downloads|Version|
+|------|------|-------|---------|-------|
+|[![travis](https://travis-ci.com/robertdebock/ansible-role-dovecot.svg?branch=master)](https://travis-ci.com/robertdebock/ansible-role-dovecot)|[![github](https://github.com/robertdebock/ansible-role-dovecot/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-dovecot/actions)|[![quality](https://img.shields.io/ansible/quality/22978)](https://galaxy.ansible.com/robertdebock/dovecot)|[![downloads](https://img.shields.io/ansible/role/d/22978)](https://galaxy.ansible.com/robertdebock/dovecot)|[![Version](https://img.shields.io/github/release/robertdebock/ansible-role-dovecot.svg)](https://github.com/robertdebock/ansible-role-dovecot/releases/)|
 
 ## [Example Playbook](#example-playbook)
 
