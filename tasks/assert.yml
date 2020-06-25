@@ -1,0 +1,12 @@
+---
+- name: test if dovecot_mailbox_location is set correctly
+  assert:
+    that:
+      - dovecot_mailbox_location is defined
+      - dovecot_mailbox_location | length > 0
+
+- name: test if dovecot_mail_access_groups is set correctly
+  assert:
+    that:
+      - dovecot_mail_access_groups is defined
+      - dovecot_mail_access_groups | length > 0
