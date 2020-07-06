@@ -1,5 +1,6 @@
 ---
 # vars file for dovecot
+
 _dovecot_packages:
   default:
     - dovecot
