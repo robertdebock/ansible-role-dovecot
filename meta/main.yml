@@ -41,6 +41,5 @@ galaxy_info:
     - imap
     - installer
     - package
-    - centos
 
 dependencies: []
