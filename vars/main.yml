@@ -4,6 +4,9 @@
 _dovecot_packages:
   default:
     - dovecot
+  Alpine:
+    - dovecot
+    - dovecot-pop3d
   Debian:
     - dovecot-core
     - dovecot-imapd
