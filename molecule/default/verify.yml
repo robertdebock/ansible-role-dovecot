@@ -5,5 +5,12 @@
   gather_facts: no
 
   tasks:
-    - name: check if connection still works
-      ping:
+    - name: check if ports are open
+      wait_for:
+        port: "{{ item }}"
+        timeout: 2
+      loop:
+        - "110"
+        - "143"
+        - "993"
+        - "995"
