@@ -28,6 +28,19 @@
     line: "mail_access_groups = {{ dovecot_mail_access_groups }}"
     mode: "0640"
 
+- name: find users in /var/spool/mail
+  find:
+    path: /var/spool/mail
+  register: dovecot_find_users
+
+- name: set permission in /var/spool/mail
+  file:
+    path: "{{ item.path }}"
+    mode: "0600"
+  loop: "{{ dovecot_find_users.files }}"
+  loop_control:
+    label: "{{ item.path | basename }}"
+
 - name: start and enable dovecot
   service:
     name: "{{ dovecot_service }}"
