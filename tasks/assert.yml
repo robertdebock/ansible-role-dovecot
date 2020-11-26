@@ -1,4 +1,5 @@
 ---
+
 - name: test if dovecot_mailbox_location is set correctly
   assert:
     that:
