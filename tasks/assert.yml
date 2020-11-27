@@ -4,10 +4,12 @@
   assert:
     that:
       - dovecot_mailbox_location is defined
+      - dovecot_mailbox_location is sting
     quiet: yes
 
 - name: test if dovecot_mail_access_groups is set correctly
   assert:
     that:
       - dovecot_mail_access_groups is defined
+      - dovecot_mail_access_groups is string
     quiet: yes
