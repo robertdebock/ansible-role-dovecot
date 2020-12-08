@@ -2,9 +2,9 @@
 
 Install and configure dovecot on your system.
 
-|Travis|GitHub|Quality|Downloads|Version|
-|------|------|-------|---------|-------|
-|[![travis](https://travis-ci.com/robertdebock/ansible-role-dovecot.svg?branch=master)](https://travis-ci.com/robertdebock/ansible-role-dovecot)|[![github](https://github.com/robertdebock/ansible-role-dovecot/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-dovecot/actions)|[![quality](https://img.shields.io/ansible/quality/22978)](https://galaxy.ansible.com/robertdebock/dovecot)|[![downloads](https://img.shields.io/ansible/role/d/22978)](https://galaxy.ansible.com/robertdebock/dovecot)|[![Version](https://img.shields.io/github/release/robertdebock/ansible-role-dovecot.svg)](https://github.com/robertdebock/ansible-role-dovecot/releases/)|
+|Travis|GitHub|GitLab|Quality|Downloads|Version|
+|------|------|------|-------|---------|-------|
+|[![travis](https://travis-ci.com/robertdebock/ansible-role-dovecot.svg?branch=master)](https://travis-ci.com/robertdebock/ansible-role-dovecot)|[![github](https://github.com/robertdebock/ansible-role-dovecot/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-dovecot/actions)|[![gitlab](https://gitlab.com/robertdebock/ansible-role-dovecot/badges/master/pipeline.svg)](https://gitlab.com/robertdebock/ansible-role-dovecot)|[![quality](https://img.shields.io/ansible/quality/22978)](https://galaxy.ansible.com/robertdebock/dovecot)|[![downloads](https://img.shields.io/ansible/role/d/22978)](https://galaxy.ansible.com/robertdebock/dovecot)|[![Version](https://img.shields.io/github/release/robertdebock/ansible-role-dovecot.svg)](https://github.com/robertdebock/ansible-role-dovecot/releases/)|
 
 ## [Example Playbook](#example-playbook)
 
@@ -125,10 +125,6 @@ image="debian" tag="stable" tox
 ## [License](#license)
 
 Apache-2.0
-
-## [Contributors](#contributors)
-
-I'd like to thank everybody that made contributions to this repository. It motivates me, improves the code and is just fun to collaborate.
 
 
 ## [Author Information](#author-information)
