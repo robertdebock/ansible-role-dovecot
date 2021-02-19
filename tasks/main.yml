@@ -7,36 +7,36 @@
   delegate_to: localhost
 
 - name: install dovecot
-  package:
+  ansible.builtin.package:
     name: "{{ dovecot_packages }}"
     state: present
   notify:
     - copy sample configuration
 
 - name: flush handlers
-  meta: flush_handlers
+  ansible.builtin.meta: flush_handlers
 
 - name: configure mail_location
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /etc/dovecot/conf.d/10-mail.conf
     regexp: "^mail_location"
     line: "mail_location = {{ dovecot_mailbox_location }}"
     mode: "0640"
 
 - name: configure mail_access_groups
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /etc/dovecot/conf.d/10-mail.conf
     regexp: "^mail_access_groups"
     line: "mail_access_groups = {{ dovecot_mail_access_groups }}"
     mode: "0640"
 
 - name: find users in /var/spool/mail
-  find:
+  ansible.builtin.find:
     path: /var/spool/mail
   register: dovecot_find_users
 
 - name: set permission in /var/spool/mail
-  file:
+  ansible.builtin.file:
     path: "{{ item.path }}"
     mode: "0600"
   loop: "{{ dovecot_find_users.files }}"
@@ -44,7 +44,7 @@
     label: "{{ item.path | basename }}"
 
 - name: start and enable dovecot
-  service:
+  ansible.builtin.service:
     name: "{{ dovecot_service }}"
     state: started
     enabled: yes
