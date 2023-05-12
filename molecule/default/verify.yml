@@ -5,7 +5,7 @@
   gather_facts: no
 
   tasks:
-    - name: check if ports are open
+    - name: Check if ports are open
       ansible.builtin.wait_for:
         port: "{{ item }}"
         timeout: 2
