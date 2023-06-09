@@ -5,6 +5,7 @@
     that:
       - dovecot_mailbox_location is defined
       - dovecot_mailbox_location is string
+      - dovecot_mailbox_location is not none
     quiet: yes
 
 - name: assert | Test if dovecot_mail_access_groups is set correctly
@@ -12,4 +13,5 @@
     that:
       - dovecot_mail_access_groups is defined
       - dovecot_mail_access_groups is string
+      - dovecot_mail_access_groups is not none
     quiet: yes
