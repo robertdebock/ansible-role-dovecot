@@ -1,4 +1,4 @@
-# Ansible role [dovecot](#dovecot)
+# [Ansible role dovecot](#dovecot)
 
 Install and configure dovecot on your system.
 
