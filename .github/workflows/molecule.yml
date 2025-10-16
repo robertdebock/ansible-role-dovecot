@@ -31,12 +31,10 @@ jobs:
         distro:
           - image: "alpine"
             tag: "latest"
-          - image: "amazonlinux"
-            tag: "latest"
           - image: "enterpriselinux"
             tag: "latest"
           - image: "debian"
-            tag: "latest"
+            tag: "bookworm"
           - image: "debian"
             tag: "bullseye"
           - image: "fedora"
