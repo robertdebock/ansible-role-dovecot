@@ -65,4 +65,4 @@
   loop_control:
     label: "{{ item.dest }}"
   when:
-    - ansible_distribution == "Archlinux"
+    - ansible_facts['distribution'] == "Archlinux"
