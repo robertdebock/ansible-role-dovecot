@@ -15,3 +15,27 @@
       - dovecot_mail_access_groups is string
       - dovecot_mail_access_groups is not none
     quiet: true
+
+- name: assert | Test dovecot_mail_driver
+  ansible.builtin.assert:
+    that:
+      - dovecot_mail_driver is defined
+      - dovecot_mail_driver is string
+      - dovecot_mail_driver is not none
+    quiet: true
+
+- name: assert | Test dovecot_mail_path
+  ansible.builtin.assert:
+    that:
+      - dovecot_mail_path is defined
+      - dovecot_mail_path is string
+      - dovecot_mail_path is not none
+    quiet: true
+
+- name: assert | Test dovecot_mail_inbox_path
+  ansible.builtin.assert:
+    that:
+      - dovecot_mail_inbox_path is defined
+      - dovecot_mail_inbox_path is string
+      - dovecot_mail_inbox_path is not none
+    quiet: true

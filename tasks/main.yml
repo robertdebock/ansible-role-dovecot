@@ -23,6 +23,26 @@
     regexp: "^mail_location"
     line: "mail_location = {{ dovecot_mailbox_location }}"
     mode: "0640"
+  when:
+    - dovecot_mail_location_style == "legacy"
+
+- name: Configure mail_driver, mail_path and mail_inbox_path
+  ansible.builtin.lineinfile:
+    path: /etc/dovecot/conf.d/10-mail.conf
+    regexp: "^{{ item.name }}"
+    line: "{{ item.name }} = {{ item.value }}"
+    mode: "0640"
+  loop:
+    - name: mail_driver
+      value: "{{ dovecot_mail_driver }}"
+    - name: mail_path
+      value: "{{ dovecot_mail_path }}"
+    - name: mail_inbox_path
+      value: "{{ dovecot_mail_inbox_path }}"
+  loop_control:
+    label: "{{ item.name }}"
+  when:
+    - dovecot_mail_location_style == "split"
 
 - name: Configure mail_access_groups
   ansible.builtin.lineinfile:
