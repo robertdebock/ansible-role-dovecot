@@ -4,5 +4,16 @@
 # Set the location for the mailbox.
 dovecot_mailbox_location: "mbox:~/mail:INBOX=/var/spool/mail/%u"
 
+# Dovecot 2.4 (Debian 13) does not know `mail_location`, it uses these three
+# settings instead. `dovecot_mailbox_location` is ignored there.
+# The type of mailbox storage.
+dovecot_mail_driver: mbox
+
+# The directory where mailboxes are stored.
+dovecot_mail_path: "~/mail"
+
+# The location of the INBOX.
+dovecot_mail_inbox_path: "/var/spool/mail/%{user}"
+
 # Grant access to these supplementary groups for mail processes.
 dovecot_mail_access_groups: mail
