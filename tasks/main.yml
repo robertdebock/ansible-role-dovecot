@@ -17,6 +17,59 @@
 - name: Flush handlers
   ansible.builtin.meta: flush_handlers
 
+- name: Create /etc/dovecot/conf.d
+  ansible.builtin.file:
+    path: /etc/dovecot/conf.d
+    state: directory
+    owner: root
+    group: root
+    mode: "0755"
+  when:
+    - dovecot_mail_location_style == "split"
+
+- name: Create a minimal dovecot.conf
+  ansible.builtin.copy:
+    dest: /etc/dovecot/dovecot.conf
+    content: |
+      dovecot_config_version = 2.4.0
+      dovecot_storage_version = 2.4.0
+      ssl_server {
+        cert_file = /etc/dovecot/dovecot.pem
+        key_file = /etc/dovecot/dovecot.key
+      }
+      ssl = yes
+      !include_try conf.d/*.conf
+    owner: root
+    group: root
+    mode: "0644"
+    force: false
+  when:
+    - dovecot_create_main_configuration | bool
+
+- name: Create a self-signed certificate
+  ansible.builtin.command:
+    cmd: >-
+      openssl req -x509 -newkey rsa:2048 -nodes -days 3650
+      -subj "/CN={{ ansible_facts['fqdn'] }}"
+      -keyout /etc/dovecot/dovecot.key -out /etc/dovecot/dovecot.pem
+    creates: /etc/dovecot/dovecot.pem
+  when:
+    - dovecot_create_main_configuration | bool
+
+- name: Enable the imap and pop3 protocols
+  ansible.builtin.copy:
+    dest: /etc/dovecot/conf.d/20-protocols.conf
+    content: |
+      protocols {
+        imap = yes
+        pop3 = yes
+      }
+    owner: root
+    group: root
+    mode: "0644"
+  when:
+    - dovecot_mail_location_style == "split"
+
 - name: Configure mail_location
   ansible.builtin.lineinfile:
     path: /etc/dovecot/conf.d/10-mail.conf
@@ -31,6 +84,9 @@
     path: /etc/dovecot/conf.d/10-mail.conf
     regexp: "^{{ item.name }}"
     line: "{{ item.name }} = {{ item.value }}"
+    create: true
+    owner: root
+    group: root
     mode: "0640"
   loop:
     - name: mail_driver

@@ -7,6 +7,7 @@ _dovecot_packages:
   Alpine:
     - dovecot
     - dovecot-pop3d
+    - openssl
   Debian:
     - dovecot-core
     - dovecot-imapd
@@ -20,6 +21,15 @@ dovecot_service: dovecot
 # `mail_inbox_path`.
 _dovecot_mail_location_style:
   default: legacy
+  Alpine: split
   Debian-13: split
+  Fedora: split
 
-dovecot_mail_location_style: "{{ _dovecot_mail_location_style[ansible_facts['distribution'] ~ '-' ~ ansible_facts['distribution_major_version']] | default(_dovecot_mail_location_style['default']) }}"
+dovecot_mail_location_style: "{{ _dovecot_mail_location_style[ansible_facts['distribution'] ~ '-' ~ ansible_facts['distribution_major_version']] | default(_dovecot_mail_location_style[ansible_facts['distribution']] | default(_dovecot_mail_location_style['default'])) }}"
+
+# Alpine's Dovecot 2.4 package does not ship a `dovecot.conf`.
+_dovecot_create_main_configuration:
+  default: false
+  Alpine: true
+
+dovecot_create_main_configuration: "{{ _dovecot_create_main_configuration[ansible_facts['os_family']] | default(_dovecot_create_main_configuration['default']) }}"
