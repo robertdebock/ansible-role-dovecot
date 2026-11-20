@@ -47,6 +47,17 @@ The default values for the variables are set in [`defaults/main.yml`](https://gi
 # Set the location for the mailbox.
 dovecot_mailbox_location: "mbox:~/mail:INBOX=/var/spool/mail/%u"
 
+# Dovecot 2.4 (Debian 13) does not know `mail_location`, it uses these three
+# settings instead. `dovecot_mailbox_location` is ignored there.
+# The type of mailbox storage.
+dovecot_mail_driver: mbox
+
+# The directory where mailboxes are stored.
+dovecot_mail_path: "~/mail"
+
+# The location of the INBOX.
+dovecot_mail_inbox_path: "/var/spool/mail/%{user}"
+
 # Grant access to these supplementary groups for mail processes.
 dovecot_mail_access_groups: mail
 ```
@@ -82,11 +93,7 @@ This role has been tested on these [container images](https://hub.docker.com/u/r
 |[Fedora](https://hub.docker.com/r/robertdebock/fedora)|all|
 |[Ubuntu](https://hub.docker.com/r/robertdebock/ubuntu)|all|
 
-The minimum version of Ansible required is 2.12, tests have been done on:
-
-- The previous version.
-- The current version.
-- The development version.
+The minimum version of Ansible (ansible-core) required is 2.20, tests are done with the latest release of ansible-core.
 
 If you find issues, please register them on [GitHub](https://github.com/robertdebock/ansible-role-dovecot/issues).
 
